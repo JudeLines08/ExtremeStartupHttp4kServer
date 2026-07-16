@@ -37,5 +37,11 @@ class AnswererTest {
         assertThat(contents, equalTo("64"))
 
     }
+    @Test
+    fun canMinusNumbers()
+    {
+        val contents = Answerer().answerFor("What is 3 minus 28?")
+        assertThat(contents, equalTo("-25"))
+    }
 
 }

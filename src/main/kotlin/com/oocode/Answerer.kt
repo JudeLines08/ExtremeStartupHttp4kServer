@@ -16,9 +16,19 @@ class Answerer {
                 multiplyNumbers(question)
             } else if (question.contains("Which of the following numbers is both a square and a cube: ")) {
                 whatIsSquareAndCube(question)
+
+            }
+            else if (question.contains("minus")) {
+                minusNumbers(question)
             }
             else {""}
         }
+
+    private fun minusNumbers(question: String): String =
+        removeQuestionMark(question).split("What is ").last().split("minus")
+            .map { it.trim() }
+            .reduce { x,y -> (x.toInt() - y.toInt()).toString() }
+
 
     private fun addNumbers(question: String): String =
         removeQuestionMark(question).split("What is ").last().split("plus")
@@ -46,4 +56,5 @@ class Answerer {
             }
         return ints.joinToString(", ") { it.toString() }
     }
+
 }
