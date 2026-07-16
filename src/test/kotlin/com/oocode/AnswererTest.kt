@@ -23,4 +23,10 @@ class AnswererTest {
         val contents = Answerer().answerFor("What is 4 plus 62?")
         assertThat(contents, equalTo("66"))
     }
+
+    @Test
+    fun canMultiply(){
+        val contents = Answerer().answerFor("What is 92 multiplied by 46?")
+        assertThat(contents, equalTo("4232"))
+    }
 }
