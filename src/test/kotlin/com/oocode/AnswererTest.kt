@@ -29,4 +29,13 @@ class AnswererTest {
         val contents = Answerer().answerFor("What is 92 multiplied by 46?")
         assertThat(contents, equalTo("4232"))
     }
+
+
+    @Test
+    fun bothSquareAndCube(){
+        val contents = Answerer().answerFor("Which of the following numbers is both a square and a cube: 2271, 396, 64, 3600, 27, 201, 284?")
+        assertThat(contents, equalTo("64"))
+
+    }
+
 }
