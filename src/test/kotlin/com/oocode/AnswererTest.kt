@@ -16,4 +16,11 @@ class AnswererTest {
         val contents = Answerer().answerFor("Which of the following numbers is the largest: 21, 74, 14?")
         assertThat(contents, equalTo("74"))
     }
+
+    @Test
+    fun canAddNumbers()
+    {
+        val contents = Answerer().answerFor("What is 4 plus 62?")
+        assertThat(contents, equalTo("66"))
+    }
 }
