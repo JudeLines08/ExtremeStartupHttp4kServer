@@ -44,4 +44,11 @@ class AnswererTest {
         assertThat(contents, equalTo("-25"))
     }
 
+
+    @Test
+    fun isPrime() {
+        val contents = Answerer().answerFor("Which of the following numbers are primes: 25, 19, 67, 53, 57?")
+        assertThat(contents, equalTo("19, 67, 53"))
+    }
+
 }

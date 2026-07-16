@@ -21,6 +21,9 @@ class Answerer {
             else if (question.contains("minus")) {
                 minusNumbers(question)
             }
+            else if (question.contains("prime")) {
+                isPrime(question)
+            }
             else {""}
         }
 
@@ -55,6 +58,30 @@ class Answerer {
                 x.minus(x.toInt()) == 0.0
             }
         return ints.joinToString(", ") { it.toString() }
+
+    }
+
+    private fun isPrime(question: String): String {
+        val split = removeQuestionMark(question)
+            .split("Which of the following numbers are primes: ").last()
+            .split(",")
+            .map { it.trim() }
+            .filter { it.isNotEmpty() }
+
+        val ints = split.filter { it.toIntOrNull()?.let(::isPrimeNumber) ?: false }
+        return ints.joinToString(", ")
+    }
+
+    private fun isPrimeNumber(n: Int): Boolean {
+        if (n < 2) return false
+        if (n == 2) return true
+        if (n % 2 == 0) return false
+        var i = 3
+        while (i * i <= n) {
+            if (n % i == 0) return false
+            i += 2
+        }
+        return true
     }
 
 }
