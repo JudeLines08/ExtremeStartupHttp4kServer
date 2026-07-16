@@ -17,7 +17,7 @@ class ExtremeStartupHttp4kServerTest {
     // This is how you'd typically test http4k services
     @Test
     fun canAnswerMyName() {
-        assertThat(app(Request(GET, "?q=What+is+your+name%3F")), equalTo(Response(OK).body("Someone")))
+        assertThat(app(Request(GET, "?q=What+is+your+name%3F")), equalTo(Response(OK).body("Jude")))
     }
 
     @Test
@@ -31,7 +31,7 @@ class ExtremeStartupHttp4kServerTest {
     @Test
     fun `canAnswerMyName using real running service`() {
         val httpClient = JavaHttpClient()
-        assertThat(httpClient(Request(GET, "http://localhost:8124?q=What+is+your+name%3F")), hasBody("Someone"))
+        assertThat(httpClient(Request(GET, "http://localhost:8124?q=What+is+your+name%3F")), hasBody("Jude"))
     }
 
     companion object {
